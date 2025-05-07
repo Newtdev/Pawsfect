@@ -1,97 +1,111 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🐾 Pawsfect - Your Pet's Perfect Companion
 
-# Getting Started
+Pawsfect is a comprehensive mobile application designed to simplify pet ownership. Manage your pets' health, schedule vet appointments, track activities, shop for supplies, and connect with AI or real veterinarians—all in one place. Built with React Native for cross-platform compatibility and following Clean Architecture principles.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## ✨ Features
 
-## Step 1: Start Metro
+### 🧑🤝🧑 User & Pet Management
+- **User Registration**: Secure sign-up with email/password.
+- **Multi-Pet Profiles**: Register multiple pets with details (breed, type, size, weight, birthdate, adoption date, caregiver).
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 🔒 Security
+- **Biometric/Face ID Login**: Quick and secure authentication.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 🛒 Shopping & Health
+- **Cart System**: Shop for pet food, toys, and essentials.
+- **Medical Records**: Track vaccinations, treatments, and vet visits.
+- **Health Reminders**: Set reminders for medications, vet appointments, and grooming.
 
-```sh
-# Using npm
-npm start
+### 🗺️ Location & Communication
+- **Vet Locator**: Find nearby vets via interactive maps, view contact info, and get directions.
+- **Pet Activity Tracking**: Log walks/training sessions with real-time GPS tracking, distance, and time metrics (Live Activities on iOS/Android).
+- **Chat**: 
+  - **AI Chatbot**: Get instant pet care advice.
+  - **Veterinarian Chat**: Direct messaging with licensed vets.
 
-# OR using Yarn
-yarn start
+### 📅 Organization
+- **Calendar**: Centralized schedule for all pet-related events.
+- **Custom Reminders**: Never miss a feeding or medication dose.
+
+## 🏗️ Architecture
+- **Clean Architecture**: Separation of concerns into layers:
+  - **Presentation**: UI components and screens.
+  - **Domain**: Business logic and use cases.
+  - **Data**: APIs, databases, and services.
+- **Modular Structure**: Features are isolated for scalability.
+
+## 📂 Folder Structure
+
+```
+├── features/ # Feature-based modules
+│ ├── authentication/ # Auth feature
+│ │ ├── api/ # Authentication API calls
+│ │ ├── components/ # Auth-specific UI components
+│ │ ├── hooks/ # Custom auth hooks
+│ │ └── screens/ # Login/Registration screens
+│ │
+│ ├── pets/ # Pet management feature
+│ │ ├── api/ # Pet-related API endpoints
+│ │ ├── components/ # Pet profile components
+│ │ ├── services/ # Business logic (e.g., weight calculations)
+│ │ └── screens/ # Pet registration/display screens
+│ │
+│ ├── cart/ # Shopping feature
+│ │ ├── api/ # Cart API integration
+│ │ ├── components/ # Cart UI components
+│ │ └── screens/ # Checkout/Product screens
+│ │
+│ └── chat/ # Chat feature
+│ ├── api/ # Chat API integration
+│ ├── components/ # Message components
+│ └── screens/ # Chat interface screens
+│
+└── shared/ # Cross-feature resources
+├── components/ # Global UI components
+│ ├── buttons/ # Reusable buttons
+│ ├── modals/ # Common modals
+│ └── icons/ # Icon library
+│
+├── hooks/ # Shared hooks
+│ ├── useLocation.ts # Location tracking hook
+│ └── useTimer.ts # Activity timer hook
+│
+└── utils/ # Utility functions
+├── formatters/ # Date/currency formatting
+└── validators/ # Form validation helpers
 ```
 
-## Step 2: Build and run your app
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🛠️ Tech Stack
+- **Multilingual**: `i18next` for localization.
+- **State Management**: 
+  - Client: `Redux` or `Zustand`.
+  - Server: `Redux Toolkit Query` or `React Query`.
+- **Workflow**: 
+  - `Husky` + `ESLint` for pre-commit linting/testing.
+  - Automated `console.log` removal in development builds.
+- **Maps**: Mapbox integration.
 
-### Android
+## � Development Workflow
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### 🌿 Branch Strategy
 ```
+# Create feature branches
+git checkout -b feature/add-pet-profile
 
-### iOS
+# Create maintenance branches
+git checkout -b chore/update-dependencies
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+type(scope): description
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+[Optional body]
 
-```sh
-bundle install
-```
+[Optional footer]
 
-Then, and every time you update your native dependencies, run:
+git commit -m "feat(pets): add weight tracking chart"
+git commit -m "fix(login): resolve biometric auth crash on iOS"
 
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🚀 Installation
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/newtdev/pawsfect.git
