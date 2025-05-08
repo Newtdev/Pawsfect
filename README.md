@@ -86,6 +86,25 @@ Pawsfect is a comprehensive mobile application designed to simplify pet ownershi
   - Automated `console.log` removal in development builds.
 - **Maps**: Mapbox integration.
 
+## � Development Workflow
+
+### 🌿 Branch Strategy
+```
+# Create feature branches
+git checkout -b feature/add-pet-profile
+
+# Create maintenance branches
+git checkout -b chore/update-dependencies
+
+type(scope): description
+
+[Optional body]
+
+[Optional footer]
+
+git commit -m "feat(pets): add weight tracking chart"
+git commit -m "fix(login): resolve biometric auth crash on iOS"
+
 ## 🚀 Installation
 1. Clone the repo:
    ```bash
