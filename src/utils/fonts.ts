@@ -41,7 +41,7 @@ const Fonts = {
   },
   medium: {
     fontFamily: 'Raleway-Medium.ttf',
-    fontWeight: '400',
+    fontWeight: '500',
     fontStyle: 'normal',
   },
   mediumItalic: {

@@ -1,6 +1,6 @@
 import {View, Text, ViewStyle} from 'react-native';
 import React, {JSX} from 'react';
-import svg from '@/assets/svg';
+import svg from '@assets/svg';
 
 /**
  * @module SVGWrapper
