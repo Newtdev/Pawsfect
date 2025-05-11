@@ -5,17 +5,18 @@
     "strict": true,
     "moduleResolution": "bundler",
     "types": ["react-native", "react", "node"],
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
       "@assets/*": ["./src/assets/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@navigator/*": ["./src/navigator/*"],
       "@shared/*": ["./src/shared/*"],
       "@features/*": ["./src/features/*"],
       "@store/*": ["./src/store/*"],
-      "@utils/*": ["./src/utils/*"]
-    }
+      "@utils/*": ["./src/utils/*"],
+      "@types": ["./src/shared/types/index.ts"]
+    },
+    "isolatedModules": true
   },
   "include": [
     "src/**/*.ts",

@@ -1,3 +1,5 @@
+import {type StyleProp, type TextStyle, type ViewStyle} from 'react-native';
+
 type FontWeightStyle = {
   fontWeight: string; // Or more specific type like 'bold' | 'normal' | '600' if known
 };
@@ -14,3 +16,6 @@ type TextVariantStyle = FontWeightStyle & {
 export type TextComponentVariants = {
   [key in TextVariantKey]: TextVariantStyle;
 };
+
+export type ViewPropsType = StyleProp<ViewStyle>;
+export type TextPropsType = StyleProp<TextStyle>;
