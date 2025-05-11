@@ -10,18 +10,15 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run:
-          name: Install Yarn
-          command: npm install -g yarn
-      - run:
           name: Install Dependencies
-          command: yarn install
+          command: npm install
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
       - run:
           name: Build Android
-          command: yarn android
+          command: npm run android
 workflows:
   version: 2
   build-and-test:
