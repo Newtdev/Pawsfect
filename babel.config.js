@@ -7,7 +7,6 @@ module.exports = {
         root: ['.'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
-          '@': './src',
           '@assets': './src/assets',
           '@features': './src/features',
           '@hooks': './src/hooks',
@@ -15,6 +14,7 @@ module.exports = {
           '@shared': './src/shared',
           '@store': './src/store',
           '@utils': './src/utils',
+          '@types': './src/types/index.ts',
           test: './test',
           underscores: 'lodash',
         },

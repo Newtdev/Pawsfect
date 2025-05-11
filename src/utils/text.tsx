@@ -1,46 +1,39 @@
+import {TextComponentVariants} from '../shared/types';
 import Fonts from './fonts';
 
-const textCompVariant = {
+const textCompVariant: TextComponentVariants = {
   headerLarge: {
     fontSize: 36,
     ...Fonts.bold,
-    lineHeight: '100%',
   },
   headerMedium: {
     fontSize: 16,
     ...Fonts.bold,
-    lineHeight: '100%',
   },
   headerSmall: {
     fontSize: 20,
     ...Fonts.bold,
-    lineHeight: '100%',
   },
   headerThin: {
     fontSize: 14,
     ...Fonts.bold,
-    lineHeight: '100%',
   },
 
   subheaderLarge: {
     fontSize: 16,
     ...Fonts.semiBold,
-    lineHeight: '100%',
   },
   subheaderMedium: {
     fontSize: 14,
     ...Fonts.semiBold,
-    lineHeight: '100%',
   },
   subheaderSmall: {
     fontSize: 12,
     ...Fonts.semiBold,
-    lineHeight: '100%',
   },
   subheaderThin: {
     fontSize: 10,
     ...Fonts.semiBold,
-    lineHeight: '100%',
   },
 
   bodyLarge: {
@@ -59,19 +52,19 @@ const textCompVariant = {
     fontSize: 10,
     ...Fonts.medium,
   },
-  descriptionLarge: {
+  captionLarge: {
     fontSize: 16,
     ...Fonts.medium,
   },
-  descriptionMedium: {
+  captionMedium: {
     fontSize: 14,
     ...Fonts.regular,
   },
-  descriptionSmall: {
+  captionSmall: {
     fontSize: 12,
     ...Fonts.regular,
   },
-  descriptionThin: {
+  captionThin: {
     fontSize: 10,
     ...Fonts.regular,
   },
