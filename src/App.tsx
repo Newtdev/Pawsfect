@@ -4,7 +4,7 @@ import SVGWrapper from './shared/components/SVGWrapper';
 import Header from './shared/components/Text/Header';
 import SubHeader from './shared/components/Text/SubHeader';
 import Caption from './shared/components/Text/Caption';
-import textCompVariant from './utils/text';
+import textCompVariant from '@shared/utils/text';
 
 function App(): React.JSX.Element {
   return (

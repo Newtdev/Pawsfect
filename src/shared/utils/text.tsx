@@ -1,4 +1,4 @@
-import {TextComponentVariants} from '../shared/types';
+import {type TextComponentVariants} from '../types';
 import Fonts from './fonts';
 
 const textCompVariant: TextComponentVariants = {
