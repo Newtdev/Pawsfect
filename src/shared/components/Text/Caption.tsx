@@ -1,8 +1,8 @@
-import {StyleSheet, Text, TextStyle} from 'react-native';
-import React, {JSX} from 'react';
-import textCompVariant from '@utils/text';
+import {StyleSheet, Text, type TextStyle} from 'react-native';
+import React, {type JSX} from 'react';
 import {headerStyle} from '../styles';
-import {TextComponentVariants} from '@shared/types';
+import {type TextComponentVariants} from '@shared/types';
+import textCompVariant from '@shared/utils/text';
 
 /***
  * Caption component for content captions

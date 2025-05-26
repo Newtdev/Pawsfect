@@ -1,0 +1,119 @@
+version: 2.1
+commands:
+  setup_node:
+    description: "Setup Node.js and install dependencies"
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install Node Dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+  setup_android:
+    description: "Setup Android environment"
+    steps:
+      - run:
+          name: Setup Android SDK
+          command: |
+            echo 'export ANDROID_HOME=/opt/android/sdk' >> $BASH_ENV
+            echo 'export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH' >> $BASH_ENV
+            source $BASH_ENV
+jobs:
+  test_and_lint:
+    docker:
+      - image: cimg/node:18.17
+    steps:
+      - setup_node
+      - run:
+          name: Run Tests
+          command: npm test -- --coverage --watchAll=false
+      - run:
+          name: Run Linting
+          command: npm run lint
+      - run:
+          name: Type Check (if using TypeScript)
+          command: npm run type-check
+      - store_test_results:
+          path: ./coverage
+      - store_artifacts:
+          path: ./coverage
+  build_android_debug:
+    docker:
+      - image: cimg/android:2023.12-node
+    resource_class: large
+    steps:
+      - setup_node
+      - setup_android
+      - restore_cache:
+          keys:
+            - v1-gradle-{{ checksum "android/gradle/wrapper/gradle-wrapper.properties" }}
+            - v1-gradle-
+      - run:
+          name: Download Dependencies
+          command: cd android && ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-gradle-{{ checksum "android/gradle/wrapper/gradle-wrapper.properties" }}
+      - run:
+          name: Build Android Debug APK
+          command: cd android && ./gradlew assembleDebug
+      - store_artifacts:
+          path: android/app/build/outputs/apk/debug/
+          destination: android-debug-apk
+  build_ios_debug:
+    macos:
+      xcode: 15.0.0
+    resource_class: macos.m1.medium.gen1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install Node Dependencies
+          command: npm install
+      - restore_cache:
+          keys:
+            - v1-pods-{{ checksum "ios/Podfile.lock" }}
+            - v1-pods-
+      - run:
+          name: Install CocoaPods
+          command: |
+            cd ios
+            pod install
+      - save_cache:
+          paths:
+            - ios/Pods
+          key: v1-pods-{{ checksum "ios/Podfile.lock" }}
+      - run:
+          name: Build iOS Debug
+          command: |
+            cd ios
+            xcodebuild -workspace Pawsfect.xcworkspace \
+                       -scheme Pawsfect \
+                       -configuration Debug \
+                       -destination generic/platform=iOS \
+                       -derivedDataPath build/ \
+                       build
+      - store_artifacts:
+          path: ios/build/
+          destination: ios-debug-build
+workflows:
+  version: 2
+  development_workflow:
+    jobs:
+      - test_and_lint
+      - build_android_debug:
+          requires:
+            - test_and_lint
+      - build_ios_debug:
+          requires:
+            - test_and_lint

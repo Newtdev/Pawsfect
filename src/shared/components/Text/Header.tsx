@@ -1,7 +1,7 @@
-import {StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
-import React, {JSX} from 'react';
-import textCompVariant from '@utils/text';
+import {type StyleProp, StyleSheet, Text, type TextStyle} from 'react-native';
+import React, {type JSX} from 'react';
 import {headerStyle} from '../styles';
+import textCompVariant from '@shared/utils/text';
 
 /***
  * Header component for content header
