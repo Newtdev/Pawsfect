@@ -3,7 +3,7 @@ orbs:
 snyk: snyk/snyk@2.3.0
 commands:
   setup_node:
-    description: "Setup Node.js and install dependencies"
+    description: 'Setup Node.js and install dependencies'
     steps:
       - checkout
       - restore_cache:
@@ -13,13 +13,13 @@ commands:
       - run:
           name: Install Node Dependencies
           command: yarn install
-                 - snky/scan
+            - snky/scan
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
   setup_android:
-    description: "Setup Android environment"
+    description: 'Setup Android environment'
     steps:
       - run:
           name: Setup Android SDK
@@ -82,8 +82,8 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install Node Dependencies
-          command: yarn install 
-          - snky/scan
+          command: yarn install
+            - snky/scan
       - restore_cache:
           keys:
             - v1-pods-{{ checksum "ios/Podfile.lock" }}
