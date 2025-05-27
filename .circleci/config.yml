@@ -30,7 +30,7 @@ commands:
 jobs:
   test_and_lint:
     docker:
-      - image: cimg/node:18.17
+      - image: cimg/node:18.18
     steps:
       - setup_node
       - run:
