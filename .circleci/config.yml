@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+snyk: snyk/snyk@2.3.0
 commands:
   setup_node:
     description: "Setup Node.js and install dependencies"
@@ -10,7 +12,8 @@ commands:
             - v1-dependencies-
       - run:
           name: Install Node Dependencies
-          command: npm install
+          command: yarn install
+                 - snky/scan
       - save_cache:
           paths:
             - node_modules
@@ -79,7 +82,8 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install Node Dependencies
-          command: npm install
+          command: yarn install 
+          - snky/scan
       - restore_cache:
           keys:
             - v1-pods-{{ checksum "ios/Podfile.lock" }}
