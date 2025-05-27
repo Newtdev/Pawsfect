@@ -10,7 +10,7 @@ commands:
             - v1-dependencies-
       - run:
           name: Install Node Dependencies
-          command: npm install
+          command: yarn install
       - save_cache:
           paths:
             - node_modules
@@ -79,7 +79,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install Node Dependencies
-          command: npm install
+          command: yarn install
       - restore_cache:
           keys:
             - v1-pods-{{ checksum "ios/Podfile.lock" }}
