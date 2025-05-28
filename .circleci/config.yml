@@ -1,7 +1,10 @@
 version: 2.1
+orbs:
+  snyk: snyk/snyk@2.3.0 
+
 commands:
   setup_node:
-    description: "Setup Node.js and install dependencies"
+    description: 'Setup Node.js and install dependencies'
     steps:
       - checkout
       - restore_cache:
@@ -11,12 +14,17 @@ commands:
       - run:
           name: Install Node Dependencies
           command: yarn install
+      - snyk/scan: 
+          fail-on-issues: false 
+          monitor-on-build: true
+          severity-threshold: high
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
   setup_android:
-    description: "Setup Android environment"
+    description: 'Setup Android environment'
     steps:
       - run:
           name: Setup Android SDK
@@ -24,6 +32,7 @@ commands:
             echo 'export ANDROID_HOME=/opt/android/sdk' >> $BASH_ENV
             echo 'export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH' >> $BASH_ENV
             source $BASH_ENV
+
 jobs:
   test_and_lint:
     docker:
@@ -43,6 +52,7 @@ jobs:
           path: ./coverage
       - store_artifacts:
           path: ./coverage
+
   build_android_debug:
     docker:
       - image: cimg/android:2023.12-node
@@ -67,6 +77,7 @@ jobs:
       - store_artifacts:
           path: android/app/build/outputs/apk/debug/
           destination: android-debug-apk
+
   build_ios_debug:
     macos:
       xcode: 15.0.0
@@ -80,6 +91,10 @@ jobs:
       - run:
           name: Install Node Dependencies
           command: yarn install
+      - snyk/scan: 
+          fail-on-issues: false 
+          monitor-on-build: true
+          severity-threshold: high
       - restore_cache:
           keys:
             - v1-pods-{{ checksum "ios/Podfile.lock" }}
@@ -106,14 +121,18 @@ jobs:
       - store_artifacts:
           path: ios/build/
           destination: ios-debug-build
+
 workflows:
   version: 2
   development_workflow:
     jobs:
       - test_and_lint
+      - security_audit: 
+          context: snyk-context 
       - build_android_debug:
           requires:
             - test_and_lint
       - build_ios_debug:
           requires:
             - test_and_lint
+          context: snyk-context 
