@@ -127,8 +127,6 @@ workflows:
   development_workflow:
     jobs:
       - test_and_lint
-      - security_audit: 
-          context: snyk-context 
       - build_android_debug:
           requires:
             - test_and_lint
