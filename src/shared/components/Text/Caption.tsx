@@ -1,6 +1,6 @@
 import {StyleSheet, Text, type TextStyle} from 'react-native';
 import React, {type JSX} from 'react';
-import {headerStyle} from '../styles';
+//import {headerStyle} from '../styles';
 import {type TextComponentVariants} from '@shared/types';
 import textCompVariant from '@shared/utils/text';
 
@@ -21,6 +21,6 @@ export default function Caption({
   variant = textCompVariant.captionLarge,
   textStyle = {},
 }: CaptionProps): JSX.Element {
-  const style = headerStyle('dark');
+  //const style = headerStyle('dark');
   return <Text style={StyleSheet.compose(variant, textStyle)}>Caption</Text>;
 }

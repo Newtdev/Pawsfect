@@ -1,6 +1,6 @@
 import {type StyleProp, StyleSheet, Text, type TextStyle} from 'react-native';
 import React, {type JSX} from 'react';
-import {headerStyle} from '../styles';
+//import {headerStyle} from '../styles';
 import textCompVariant from '@shared/utils/text';
 
 /***
@@ -20,6 +20,6 @@ export default function SubHeader({
   variant = textCompVariant.subheaderLarge,
   textStyle = {},
 }: SubHeaderProps): JSX.Element {
-  const style = headerStyle('dark');
+  // const style = headerStyle('dark');
   return <Text style={StyleSheet.compose(variant, textStyle)}>Header</Text>;
 }
