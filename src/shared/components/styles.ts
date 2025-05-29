@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const headerStyle = themeMode =>
+export const headerStyle = () =>
   StyleSheet.create({
     textStyle: {},
   });

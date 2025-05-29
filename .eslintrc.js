@@ -18,7 +18,7 @@ module.exports = {
     'react-native/no-inline-styles': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/func-call-spacing': 'off',
-    '@typescript-eslint/no-require-imports': 'warn',
+    '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/consistent-type-imports': [
       'error',
       {
@@ -27,4 +27,12 @@ module.exports = {
       },
     ],
   },
+
+  overrides: [
+    {
+      // Test files only
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
+    },
+  ],
 };

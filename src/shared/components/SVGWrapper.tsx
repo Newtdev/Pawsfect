@@ -1,5 +1,5 @@
-import {View, Text, ViewStyle} from 'react-native';
-import React, {JSX} from 'react';
+import type {ViewStyle} from 'react-native';
+import React, {type JSX} from 'react';
 import svg from '@assets/svg';
 
 /**
