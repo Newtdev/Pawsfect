@@ -19,7 +19,7 @@ interface SubHeaderProps {
 export default function SubHeader({
   variant = textCompVariant.subheaderLarge,
   textStyle = {},
-}: SubHeaderProps): JSX.Element {
+}: Readonly<SubHeaderProps>): JSX.Element {
   // const style = headerStyle('dark');
   return <Text style={StyleSheet.compose(variant, textStyle)}>Header</Text>;
 }

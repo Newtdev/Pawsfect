@@ -5,7 +5,7 @@
     "strict": true,
     "moduleResolution": "bundler",
     "types": ["react-native", "react", "node"],
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@hooks/*": ["./src/shared/hooks/*"],
