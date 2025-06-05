@@ -2,6 +2,7 @@ export const Theme = {
   primary: {
     transparent: '#45A94D05',
     default: '#319039',
+    light: '#EDF7EE',
   },
 
   secondary: '#FF9900D4',

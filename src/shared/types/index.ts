@@ -33,4 +33,5 @@ export interface PawfectButtonProps extends TouchableOpacityProps {
   buttonStyle?: ViewPropsType;
   disabledStyle?: ViewPropsType;
   buttonRef?: Ref<View>;
+  onPress?: () => void;
 }

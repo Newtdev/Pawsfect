@@ -14,7 +14,8 @@
     "test:ci": "jest --coverage --watchAll=false --maxWorkers=2",
     "test:update": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",
-    "prepare": "husky"
+    "prepare": "husky",
+    "typo-checker": "typo-checker"
   },
   "dependencies": {
     "react": "19.0.0",
@@ -22,7 +23,8 @@
     "react-native-gesture-handler": "^2.25.0",
     "react-native-safe-area-context": "^5.4.1",
     "react-native-svg": "^15.11.2",
-    "snyk": "^1.1297.1"
+    "snyk": "^1.1297.1",
+    "typo-checker": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -37,7 +39,7 @@
     "@react-native/typescript-config": "0.79.2",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^13.2.0",
-    "@types/jest": "^29.5.13",
+    "@types/jest": "^29.5.14",
     "@types/react": "^19.0.0",
     "@types/react-test-renderer": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.32.0",

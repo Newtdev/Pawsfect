@@ -1,6 +1,5 @@
 import {type StyleProp, StyleSheet, Text, type TextStyle} from 'react-native';
 import React, {type JSX} from 'react';
-//import {headerStyle} from '../styles';
 import textCompVariant from '@shared/utils/text';
 
 /***
@@ -14,12 +13,13 @@ import textCompVariant from '@shared/utils/text';
 interface SubHeaderProps {
   variant?: StyleProp<TextStyle>;
   textStyle?: TextStyle;
+  children?: React.ReactNode | string;
 }
 
 export default function SubHeader({
   variant = textCompVariant.subheaderLarge,
   textStyle = {},
+  children,
 }: Readonly<SubHeaderProps>): JSX.Element {
-  // const style = headerStyle('dark');
-  return <Text style={StyleSheet.compose(variant, textStyle)}>Header</Text>;
+  return <Text style={StyleSheet.compose(variant, textStyle)}>{children}</Text>;
 }

@@ -30,7 +30,7 @@ export default function IconButton({
       containerStyle={buttonContainerStyle}
       buttonStyle={[buttons.iconButtonWithBorder, buttonStyle]}
       {...props}>
-      <SVGWrapper name={icon} height={height} with={width} />
+      <SVGWrapper name={icon} height={height} width={width} />
     </PawfectButton>
   );
 }
