@@ -32,16 +32,16 @@ export const buttons = StyleSheet.create({
   chip: {},
 });
 
-export const textInputStyles = (isFocused: boolean) =>
-  StyleSheet.create({
+export const textInputStyles = (isFocused: boolean, error: boolean = true) => {
+  const isFocusedStyle = isFocused && Theme.primary.default;
+  const isErrorStyle = error && Theme.error.default;
+  return StyleSheet.create({
     container: {
       backgroundColor: Theme.primary.light,
       paddingHorizontal: horizontalScale(13),
       borderRadius: moderateScale(30),
       borderWidth: 1,
-      borderColor: isFocused
-        ? Theme.primary.default
-        : Theme.primary.transparent,
+      borderColor: isFocusedStyle || isErrorStyle || Theme.primary.transparent,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-evenly',
@@ -74,3 +74,4 @@ export const textInputStyles = (isFocused: boolean) =>
       marginBottom: verticalScale(4),
     },
   });
+};

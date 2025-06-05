@@ -36,6 +36,7 @@ function App(): React.JSX.Element {
           placeholder="Enter your email"
           label="Email"
           inputTextStyle={{color: Theme.black}}
+          error="Something went wrong"
           // containerStyle={{marginVertical: 10}}
         />
       </View>
