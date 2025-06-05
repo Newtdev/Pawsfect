@@ -3,7 +3,6 @@ import type {TextStyle} from 'react-native';
 import type {JSX} from 'react';
 import React from 'react';
 import textCompVariant from '@utils/text';
-//import {headerStyle} from '../styles';
 import {type TextComponentVariants} from '@shared/types';
 
 /***
@@ -17,12 +16,13 @@ import {type TextComponentVariants} from '@shared/types';
 interface BodyProps {
   variant?: TextComponentVariants;
   textStyle?: TextStyle;
+  children?: React.ReactNode;
 }
 
 export default function Body({
   variant = textCompVariant.BodyLarge,
   textStyle = {},
-}: BodyProps): JSX.Element {
-  //const style = headerStyle();
-  return <Text style={StyleSheet.compose(variant, textStyle)}>Header</Text>;
+  children,
+}: Readonly<BodyProps>): JSX.Element {
+  return <Text style={StyleSheet.compose(variant, textStyle)}>{children}</Text>;
 }

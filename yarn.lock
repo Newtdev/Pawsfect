@@ -1430,6 +1430,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@colors/colors@npm:1.5.0":
+  version: 1.5.0
+  resolution: "@colors/colors@npm:1.5.0"
+  checksum: d64d5260bed1d5012ae3fc617d38d1afc0329fec05342f4e6b838f46998855ba56e0a73833f4a80fa8378c84810da254f76a8a19c39d038260dc06dc4e007425
+  languageName: node
+  linkType: hard
+
 "@egjs/hammerjs@npm:^2.0.17":
   version: 2.0.17
   resolution: "@egjs/hammerjs@npm:2.0.17"
@@ -2744,7 +2751,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.13":
+"@types/jest@npm:^29.5.14":
   version: 29.5.14
   resolution: "@types/jest@npm:29.5.14"
   dependencies:
@@ -2923,6 +2930,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/project-service@npm:8.33.1":
+  version: 8.33.1
+  resolution: "@typescript-eslint/project-service@npm:8.33.1"
+  dependencies:
+    "@typescript-eslint/tsconfig-utils": ^8.33.1
+    "@typescript-eslint/types": ^8.33.1
+    debug: ^4.3.4
+  peerDependencies:
+    typescript: ">=4.8.4 <5.9.0"
+  checksum: 237618a025c11587d079ce82c289a43579c422ff134a32b08ef3804e5bac7632c692f7acd49d1e6520c55f41edfdabf54069c9d460d1a5e05e051027657c96b0
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/scope-manager@npm:5.62.0":
   version: 5.62.0
   resolution: "@typescript-eslint/scope-manager@npm:5.62.0"
@@ -2969,6 +2989,15 @@ __metadata:
   peerDependencies:
     typescript: ">=4.8.4 <5.9.0"
   checksum: 5bb139be996a16f65c012c083e4c0dc2ddafd1295940203e6c2a1ac9fa0718b1a91f74354f162d3d9614b013e062863414d4478c57ffbf78dfd7cb4f5701abde
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/tsconfig-utils@npm:8.33.1, @typescript-eslint/tsconfig-utils@npm:^8.33.1":
+  version: 8.33.1
+  resolution: "@typescript-eslint/tsconfig-utils@npm:8.33.1"
+  peerDependencies:
+    typescript: ">=4.8.4 <5.9.0"
+  checksum: 9e0e348af4d54b7e42a015bf36e08965c8fa389ac7b179c2ccf2bec5fce4b31e951397394dcbaea6fb0ddf782f4f2f2ee71df108173742f756705f82d653cc9d
   languageName: node
   linkType: hard
 
@@ -3029,6 +3058,13 @@ __metadata:
   version: 8.33.0
   resolution: "@typescript-eslint/types@npm:8.33.0"
   checksum: 3fa8c4598960c93e4f002d0d62c39072617b58808af88237b87d26a506576fd33cf5822505128575cf3c817257d7ee08a696f015369f6958303c2e73a1c83fc5
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/types@npm:8.33.1, @typescript-eslint/types@npm:^8.33.1":
+  version: 8.33.1
+  resolution: "@typescript-eslint/types@npm:8.33.1"
+  checksum: 80ad8b857324da1778e0dd7af213b18ff18abb0a4fd600a80379e68fdec17c1f0dc2e2bb29667b0c4d9f1a113978d0bef71eb380fe95d239247f4b58d24af32f
   languageName: node
   linkType: hard
 
@@ -3104,6 +3140,26 @@ __metadata:
   peerDependencies:
     typescript: ">=4.8.4 <5.9.0"
   checksum: 365de7456d593c4728f81e01c318b76f7e954246c4703e01a27532e756a2854d859ccbf13562bcadba34f02ed202cd04dd88ea841b9e38a8a70ce4bc9e5fc731
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/typescript-estree@npm:^8.33.1":
+  version: 8.33.1
+  resolution: "@typescript-eslint/typescript-estree@npm:8.33.1"
+  dependencies:
+    "@typescript-eslint/project-service": 8.33.1
+    "@typescript-eslint/tsconfig-utils": 8.33.1
+    "@typescript-eslint/types": 8.33.1
+    "@typescript-eslint/visitor-keys": 8.33.1
+    debug: ^4.3.4
+    fast-glob: ^3.3.2
+    is-glob: ^4.0.3
+    minimatch: ^9.0.4
+    semver: ^7.6.0
+    ts-api-utils: ^2.1.0
+  peerDependencies:
+    typescript: ">=4.8.4 <5.9.0"
+  checksum: aacb9252572be7079252dd3798e99ec0f8b7eee6875ab431fe2f646705ea1f9f968d26a0611b9d02080ed1da1986280f3b9df5ad15e9a7b54026ae274fc435fd
   languageName: node
   linkType: hard
 
@@ -3209,6 +3265,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/visitor-keys@npm:8.33.1":
+  version: 8.33.1
+  resolution: "@typescript-eslint/visitor-keys@npm:8.33.1"
+  dependencies:
+    "@typescript-eslint/types": 8.33.1
+    eslint-visitor-keys: ^4.2.0
+  checksum: d8bbb35ff28aaa11313d1bf6871efe343862836a0ca1083d833227a7426be7c8c791a4abc1cd0e3d86c5c0ad371fd72a3ef018e92c73e17fc75a789ca40a2e41
+  languageName: node
+  linkType: hard
+
 "@ungap/structured-clone@npm:^1.2.0":
   version: 1.3.0
   resolution: "@ungap/structured-clone@npm:1.3.0"
@@ -3239,7 +3305,7 @@ __metadata:
     "@react-native/typescript-config": 0.79.2
     "@testing-library/jest-native": ^5.4.3
     "@testing-library/react-native": ^13.2.0
-    "@types/jest": ^29.5.13
+    "@types/jest": ^29.5.14
     "@types/react": ^19.0.0
     "@types/react-test-renderer": ^19.0.0
     "@typescript-eslint/eslint-plugin": ^8.32.0
@@ -3266,6 +3332,7 @@ __metadata:
     react-test-renderer: 19.0.0
     snyk: ^1.1297.1
     typescript: 5.0.4
+    typo-checker: ^1.0.6
   languageName: unknown
   linkType: soft
 
@@ -3998,7 +4065,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.4.1":
+"chalk@npm:^5.3.0, chalk@npm:^5.4.1":
   version: 5.4.1
   resolution: "chalk@npm:5.4.1"
   checksum: 0c656f30b782fed4d99198825c0860158901f449a6b12b818b0aabad27ec970389e7e8767d0e00762175b23620c812e70c4fd92c0210e55fc2d993638b74e86e
@@ -4090,6 +4157,19 @@ __metadata:
   version: 2.9.2
   resolution: "cli-spinners@npm:2.9.2"
   checksum: 1bd588289b28432e4676cb5d40505cfe3e53f2e4e10fbe05c8a710a154d6fe0ce7836844b00d6858f740f2ffe67cdc36e0fce9c7b6a8430e80e6388d5aa4956c
+  languageName: node
+  linkType: hard
+
+"cli-table3@npm:^0.6.5":
+  version: 0.6.5
+  resolution: "cli-table3@npm:0.6.5"
+  dependencies:
+    "@colors/colors": 1.5.0
+    string-width: ^4.2.0
+  dependenciesMeta:
+    "@colors/colors":
+      optional: true
+  checksum: ab7afbf4f8597f1c631f3ee6bb3481d0bfeac8a3b81cffb5a578f145df5c88003b6cfff46046a7acae86596fdd03db382bfa67f20973b6b57425505abc47e42c
   languageName: node
   linkType: hard
 
@@ -4599,6 +4679,13 @@ __metadata:
   version: 2.1.0
   resolution: "detect-node@npm:2.1.0"
   checksum: 832184ec458353e41533ac9c622f16c19f7c02d8b10c303dfd3a756f56be93e903616c0bb2d4226183c9351c15fc0b3dba41a17a2308262afabcfa3776e6ae6e
+  languageName: node
+  linkType: hard
+
+"dictionary-en@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "dictionary-en@npm:4.0.0"
+  checksum: 98300011d410665d68ec03a209669ba203f087f812d9b12139a4aff795654235a70ed088a2e1c99fb26ff490b9ca4af64cd2f6e1744a530c34cef0f3086b4a73
   languageName: node
   linkType: hard
 
@@ -5490,7 +5577,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.2":
+"fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.2":
   version: 3.3.3
   resolution: "fast-glob@npm:3.3.3"
   dependencies:
@@ -6335,6 +6422,13 @@ __metadata:
     call-bound: ^1.0.3
     has-tostringtag: ^1.0.2
   checksum: 0415b181e8f1bfd5d3f8a20f8108e64d372a72131674eea9c2923f39d065b6ad08d654765553bdbffbd92c3746f1007986c34087db1bd89a31f71be8359ccdaa
+  languageName: node
+  linkType: hard
+
+"is-buffer@npm:^2.0.0":
+  version: 2.0.5
+  resolution: "is-buffer@npm:2.0.5"
+  checksum: 764c9ad8b523a9f5a32af29bdf772b08eb48c04d2ad0a7240916ac2688c983bf5f8504bf25b35e66240edeb9d9085461f9b5dae1f3d2861c6b06a65fe983de42
   languageName: node
   linkType: hard
 
@@ -8265,6 +8359,15 @@ __metadata:
   dependencies:
     path-key: ^4.0.0
   checksum: ae8e7a89da9594fb9c308f6555c73f618152340dcaae423e5fb3620026fefbec463618a8b761920382d666fa7a2d8d240b6fe320e8a6cdd54dc3687e2b659d25
+  languageName: node
+  linkType: hard
+
+"nspell@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "nspell@npm:2.1.5"
+  dependencies:
+    is-buffer: ^2.0.0
+  checksum: bffbe94f96d2f2f85e38157e7df1b7849da5558893e59114903b821414e93c8cd9dd9b7f277677eb819e2c498cae0d918b80ffeda8a9c1c48e0c409d08ff0d6a
   languageName: node
   linkType: hard
 
@@ -10341,6 +10444,22 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: d26b6ba97b6d163c55dbdffd9bbb4c211667ebebc743accfeb2c8c0154aace7afd097b51165a72a5bad2cf65a4612259344ff60f8e642362aa1695c760d303ac
+  languageName: node
+  linkType: hard
+
+"typo-checker@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "typo-checker@npm:1.0.6"
+  dependencies:
+    "@typescript-eslint/typescript-estree": ^8.33.1
+    chalk: ^5.3.0
+    cli-table3: ^0.6.5
+    dictionary-en: ^4.0.0
+    fast-glob: ^3.2.12
+    nspell: ^2.1.5
+  bin:
+    typo-checker: dist/bin/index.js
+  checksum: 7adbe2f848b8c823304a97f0d6dacada2273802e3ec1c3aa09dcd0d42f63ce64b97393b3445c65b160ca224dae76a436c3f46aed0772a321869bae1e819b0b73
   languageName: node
   linkType: hard
 

@@ -1,7 +1,6 @@
 import {StyleSheet, Text, type TextStyle} from 'react-native';
-import React, {type JSX} from 'react';
-//import {headerStyle} from '../styles';
-import {type TextComponentVariants} from '@shared/types';
+import React, {type ReactNode, type JSX} from 'react';
+import type {TextPropsType} from '@shared/types';
 import textCompVariant from '@shared/utils/text';
 
 /***
@@ -13,14 +12,15 @@ import textCompVariant from '@shared/utils/text';
  */
 
 interface CaptionProps {
-  variant?: TextComponentVariants;
+  variant?: TextPropsType;
   textStyle?: TextStyle;
+  children: ReactNode | string;
 }
 
 export default function Caption({
   variant = textCompVariant.captionLarge,
   textStyle = {},
-}: CaptionProps): JSX.Element {
-  //const style = headerStyle('dark');
-  return <Text style={StyleSheet.compose(variant, textStyle)}>Caption</Text>;
+  children,
+}: Readonly<CaptionProps>): JSX.Element {
+  return <Text style={StyleSheet.compose(variant, textStyle)}>{children}</Text>;
 }

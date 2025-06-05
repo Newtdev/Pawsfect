@@ -54,7 +54,7 @@ const textCompVariant: TextComponentVariants = {
   },
   captionLarge: {
     fontSize: 16,
-    ...Fonts.medium,
+    ...Fonts.regular,
   },
   captionMedium: {
     fontSize: 14,
