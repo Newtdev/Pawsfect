@@ -12,6 +12,7 @@ import ActionButton, {
 } from '@shared/components/buttons/ActionButton';
 import InputField from '@shared/components/inputs/PawfectInput';
 import FormInput from '@shared/components/inputs/FormInput';
+import SearchBar from '@shared/components/inputs/SearchInput';
 
 function App(): React.JSX.Element {
   return (
@@ -39,6 +40,8 @@ function App(): React.JSX.Element {
           error="Something went wrong"
           // containerStyle={{marginVertical: 10}}
         />
+
+        <SearchBar onChangeText={function (text: string): void {}} value={''} />
       </View>
     </GestureHandlerRootView>
   );

@@ -24,7 +24,7 @@
     "react-native-safe-area-context": "^5.4.1",
     "react-native-svg": "^15.11.2",
     "snyk": "^1.1297.1",
-    "typo-checker": "^1.0.6"
+    "typo-checker": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

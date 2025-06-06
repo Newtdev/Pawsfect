@@ -5,7 +5,7 @@ import type {ViewPropsType} from '@shared/types';
 import PawfectButton from './PawfectButton';
 import {buttons} from '../styles';
 
-type IconName = 'notification' | 'logo'; // Add all valid icon names here
+type IconName = 'notification' | 'logo' | 'filter'; // Add all valid icon names here
 
 export interface IconButtonProps {
   buttonContainerStyle?: ViewPropsType;

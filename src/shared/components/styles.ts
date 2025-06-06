@@ -32,7 +32,7 @@ export const buttons = StyleSheet.create({
   chip: {},
 });
 
-export const textInputStyles = (isFocused: boolean, error: boolean = true) => {
+export const textInputStyles = (isFocused: boolean, error: boolean = false) => {
   const isFocusedStyle = isFocused && Theme.primary.default;
   const isErrorStyle = error && Theme.error.default;
   return StyleSheet.create({
@@ -48,7 +48,7 @@ export const textInputStyles = (isFocused: boolean, error: boolean = true) => {
     },
     textField: {
       paddingHorizontal: horizontalScale(13),
-      width: '80%',
+      width: '90%',
     },
 
     rightIconContainer: {

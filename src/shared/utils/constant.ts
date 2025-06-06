@@ -1,0 +1,1 @@
+export const TIMEOUT_DEFAULT_DELAY = 2000;
