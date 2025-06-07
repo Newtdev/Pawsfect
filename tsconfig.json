@@ -24,6 +24,7 @@
     "babel.config.js",
     "declaration.d.ts",
     "__tests__/Chip.test.tsx",
-    "__tests__/useDebounceFunction.test.ts"
+    "src/shared/__test__/useDebounceFunction.test.ts",
+    "src/shared/__test__/useClipboard.test.ts"
   ]
 }

@@ -1,8 +1,8 @@
 import {renderHook, act} from '@testing-library/react-hooks';
-import useDebounceFunction from '../src/shared/hooks/useDebounceFunction';
+import useDebounceFunction from '../hooks/useDebounceFunction';
 
 // Mock useTimeoutManager
-jest.mock('../src/shared/hooks/useTimeoutManager', () => {
+jest.mock('@shared/hooks/useTimeoutManager', () => {
   let timeout: NodeJS.Timeout | null = null;
   return {
     useTimeoutManager: () => ({

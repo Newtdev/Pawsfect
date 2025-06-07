@@ -16,13 +16,10 @@ import {StyleSheet, type TextInput, View} from 'react-native';
 import InputField from './PawfectInput';
 import {Theme} from '@shared/utils/themes';
 import Fonts from '@shared/utils/fonts';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withRepeat,
-  withTiming,
-} from 'react-native-reanimated';
-import {SHAKE_OFFSET} from '@shared/utils/constant';
+import Animated from 'react-native-reanimated';
+
+import useClipboard from '@hooks/useClipboard';
+import useShakeAnimation from '@hooks/useShakeAnimation';
 
 interface State {
   focused: boolean;
@@ -52,7 +49,7 @@ export interface PinInputProps {
 const PinInput = forwardRef(
   (props: PinInputProps, ref: ForwardedRef<TextInput>): JSX.Element => {
     const {
-      value = '12345',
+      value = '',
       codeLength = 5,
       autoFocus = true,
       cellWidth = 54,
@@ -66,6 +63,8 @@ const PinInput = forwardRef(
       onBlur = () => {},
       cellFocusedStyle = {},
     } = props;
+    const {shakeStyle, handleShake} = useShakeAnimation();
+    const {getOTPFromClipboard} = useClipboard();
 
     const styles = pinInputStyles(cellWidth, cellHeight);
 
@@ -74,18 +73,6 @@ const PinInput = forwardRef(
       showError: false,
       showSuccess: false,
     });
-    const offset = useSharedValue(0);
-    const shakeStyle = useAnimatedStyle(() => ({
-      transform: [{translateX: offset.value}],
-    }));
-
-    const handleShake = useCallback(() => {
-      offset.value = withRepeat(
-        withTiming(SHAKE_OFFSET, {duration: 100}),
-        5,
-        true,
-      );
-    }, [offset]);
 
     const handleFocus = useCallback(() => {
       onFocus();
@@ -98,15 +85,21 @@ const PinInput = forwardRef(
     }, [onBlur]);
 
     const handleInputChange = useCallback(
-      (code: string) => {
-        const sanitized = code.replace(/\D/g, '');
-        onChangeText?.(sanitized);
+      async (code: string) => {
+        const copiedOTP = await getOTPFromClipboard();
+        const otpCode = code ?? copiedOTP;
+        const isPasted = code.includes(copiedOTP ?? '');
+        const sanitized = otpCode?.replace(/\D/g, '');
+        onChangeText?.(sanitized ?? '');
+        if (isPasted) {
+          onChangeText?.(sanitized ?? '');
+        }
 
-        if (sanitized.length === codeLength) {
+        if (sanitized?.length === codeLength) {
           onFulfill?.(sanitized);
         }
       },
-      [codeLength, onChangeText, onFulfill],
+      [codeLength, getOTPFromClipboard, onChangeText, onFulfill],
     );
 
     useEffect(() => {
@@ -153,7 +146,7 @@ const PinInput = forwardRef(
         state.focused,
         state.showError,
         state.showSuccess,
-        // getCellAnimation,
+
         styles,
         cellFocusedStyle,
         secureTextEntry,
