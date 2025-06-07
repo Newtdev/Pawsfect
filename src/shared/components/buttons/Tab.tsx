@@ -31,7 +31,13 @@ export default function Tab({
     [isActive],
   );
   return (
-    <PawfectButton buttonStyle={[styles.container, buttonStyle]} {...props}>
+    <PawfectButton
+      buttonStyle={[styles.container, buttonStyle]}
+      accessible={true}
+      accessibilityRole="tab"
+      accessibilityState={{selected: isActive}}
+      accessibilityLabel={content}
+      {...props}>
       <>
         <Caption
           variant={textCompVariant.captionMedium}

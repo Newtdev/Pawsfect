@@ -33,5 +33,26 @@ export interface PawfectButtonProps extends TouchableOpacityProps {
   buttonStyle?: ViewPropsType;
   disabledStyle?: ViewPropsType;
   buttonRef?: Ref<View>;
+  disabled?: boolean;
   onPress?: () => void;
 }
+
+export type FontKey =
+  | 'thinItalic'
+  | 'thin'
+  | 'extraLight'
+  | 'extraLightItalic'
+  | 'light'
+  | 'lightItalic'
+  | 'italic'
+  | 'regular'
+  | 'medium'
+  | 'mediumItalic'
+  | 'semiBold'
+  | 'semiboldItalic'
+  | 'bold'
+  | 'boldItalic'
+  | 'extraBold'
+  | 'extraBoldItalic'
+  | 'black'
+  | 'blackItalic';

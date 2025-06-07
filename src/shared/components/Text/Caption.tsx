@@ -1,5 +1,5 @@
 import {StyleSheet, Text, type TextStyle} from 'react-native';
-import React, {type ReactNode, type JSX} from 'react';
+import React, {type ReactNode, type JSX, type ReactElement} from 'react';
 import type {TextPropsType} from '@shared/types';
 import textCompVariant from '@shared/utils/text';
 
@@ -14,7 +14,7 @@ import textCompVariant from '@shared/utils/text';
 interface CaptionProps {
   variant?: TextPropsType;
   textStyle?: TextStyle;
-  children: ReactNode | string;
+  children: ReactElement | string;
 }
 
 export default function Caption({

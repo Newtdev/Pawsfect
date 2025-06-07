@@ -1,14 +1,18 @@
 import 'react-native-gesture-handler/jestSetup';
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
+const reanimated = require('react-native-reanimated');
+if (typeof reanimated.setUpTests === 'function') {
+  reanimated.setUpTests();
+}
 
 // Mock react-native modules
-// jest.mock('react-native-reanimated', () => {
-//   const Reanimated = require('react-native-reanimated/mock');
-//   // The mock for `call` immediately calls the callback which is incorrect
-//   // So we override it with a no-op
-//   Reanimated.default.call = () => {};
-//   return Reanimated;
-// });
+jest.mock('react-native-reanimated', () => {
+  const Reanimated = require('react-native-reanimated/mock');
+  // The mock for `call` immediately calls the callback which is incorrect
+  // So we override it with a no-op
+  Reanimated.default.call = () => {};
+  return Reanimated;
+});
 
 // Silence the warning: Animated: `useNativeDriver` is not supported
 // jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
@@ -37,6 +41,11 @@ import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
 
 // Mock react-native-safe-area-context
 jest.mock('react-native-safe-area-context', () => mockSafeAreaContext);
+
+jest.mock('@react-native-clipboard/clipboard', () => ({
+  getString: jest.fn(),
+  setString: jest.fn(),
+}));
 
 // Mock console methods in tests to reduce noise
 global.console = {
