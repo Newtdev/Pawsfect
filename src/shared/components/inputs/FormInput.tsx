@@ -1,11 +1,18 @@
 import React, {type JSX, useState} from 'react';
-import {Animated, Easing, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import InputField from './PawfectInput';
 import IconButton from '../buttons/IconButton';
 import Caption from '../Text/Caption';
 import {horizontalScale, If} from '@shared/utils/helpers';
 import textCompVariant from '@shared/utils/text';
 import {Theme} from '@shared/utils/themes';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from 'react-native-reanimated';
+import {SHAKE_OFFSET} from '@shared/utils/constant';
 
 interface FormInputProps {
   placeholder?: string;
@@ -30,22 +37,22 @@ export default function FormInput({
   ...props
 }: Readonly<FormInputProps>): JSX.Element {
   const [isFocused, setIsFocused] = useState(false);
-  const shakeAnimation = new Animated.Value(0);
-  const onShake = () => {
-    shakeAnimation.setValue(0);
-    Animated.timing(shakeAnimation, {
-      duration: 375,
-      toValue: 3,
-      easing: Easing.bounce,
-      useNativeDriver: true,
-    }).start();
+
+  const offset = useSharedValue(0);
+  const style = useAnimatedStyle(() => ({
+    transform: [{translateX: offset.value}],
+  }));
+
+  const handlePress = () => {
+    offset.value = withRepeat(
+      withTiming(SHAKE_OFFSET, {duration: 100}),
+      5,
+      true,
+    );
   };
-  const translateX = shakeAnimation.interpolate({
-    inputRange: [0, 0.5, 1, 1.5, 2, 2.5, 3],
-    outputRange: [0, -15, 0, -15, 0, -15, 0],
-  });
+
   return (
-    <Animated.View style={[containerStyle, {transform: [{translateX}]}]}>
+    <Animated.View style={[containerStyle, style]}>
       <InputField
         placeholder={placeholder}
         onFocus={() => props.onFocus ?? setIsFocused(true)}

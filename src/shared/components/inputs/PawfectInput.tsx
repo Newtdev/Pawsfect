@@ -9,6 +9,7 @@ import {
   TextInput,
   View,
   type TextStyle,
+  AccessibilityProps,
 } from 'react-native';
 import {textInputStyles} from '../styles';
 
@@ -24,6 +25,9 @@ type InputFieldProps = {
   containerStyle?: ViewPropsType;
   width?: number;
   height?: number;
+  accessibilityLabel?: string;
+  accessibilityHint?: string;
+  accessible?: boolean;
   [key: string]: unknown;
 };
 
@@ -38,6 +42,9 @@ function InputField({
   width = horizontalScale(327),
   height = verticalScale(54),
   containerStyle,
+  accessibilityLabel,
+  accessibilityHint,
+  accessible = true,
   ...props
 }: Readonly<InputFieldProps>): React.JSX.Element {
   const COLOUR_SCHEME_PLACEHOLDER_COLOUR = Theme.grey2;
@@ -48,7 +55,11 @@ function InputField({
   return (
     <Pressable
       onPress={onPress}
-      style={StyleSheet.flatten([styles.container, containerStyle])}>
+      style={StyleSheet.flatten([styles.container, containerStyle])}
+      accessible={accessible}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityHint={accessibilityHint}
+      accessibilityRole="button">
       <If condition={leftComponent}>
         <View style={styles.leftIconContainer}>{leftComponent}</View>
       </If>
@@ -59,15 +70,17 @@ function InputField({
         style={
           {
             height,
-
             ...TEXT_STYLE,
             ...styles.textField,
-
             ...textInputStyle,
           } as TextStyle
         }
         placeholderTextColor={COLOUR_SCHEME_PLACEHOLDER_COLOUR}
         underlineColorAndroid="transparent"
+        accessible={accessible}
+        accessibilityLabel={accessibilityLabel}
+        accessibilityHint={accessibilityHint}
+        accessibilityRole="search" // or "textbox" depending on your use case
         {...props}
       />
       <If condition={rightComponent}>

@@ -14,6 +14,8 @@ export interface IconButtonProps {
   colour?: string;
   height?: number;
   width?: number;
+  accessibilityLabel?: string;
+  accessible?: boolean;
   [x: string]: unknown;
 }
 
@@ -23,14 +25,24 @@ export default function IconButton({
   icon = 'notification',
   height = verticalScale(24),
   width = horizontalScale(24),
+  accessibilityLabel,
+  accessible = true,
   ...props
 }: Readonly<IconButtonProps>): JSX.Element {
   return (
     <PawfectButton
       containerStyle={buttonContainerStyle}
       buttonStyle={[buttons.iconButtonWithBorder, buttonStyle]}
+      accessibilityLabel={accessibilityLabel ?? `${icon} button`}
+      accessible={accessible}
       {...props}>
-      <SVGWrapper name={icon} height={height} width={width} />
+      <SVGWrapper
+        name={icon}
+        height={height}
+        width={width}
+        accessibilityLabel={accessibilityLabel ?? `${icon} icon`}
+        accessible={false}
+      />
     </PawfectButton>
   );
 }

@@ -42,3 +42,21 @@ export {
   isObjectEmpty,
   If,
 };
+
+/**
+ *
+ *   // const shakeAnimation = new Animated.Value(0);
+   // const onShake = () => {
+   //   shakeAnimation.setValue(0);
+   //   Animated.timing(shakeAnimation, {
+   //     duration: 375,
+   //     toValue: 3,
+   //     easing: Easing.bounce,
+   //     useNativeDriver: true,
+   //   }).start();
+   // };
+   // const translateX = shakeAnimation.interpolate({
+   //   inputRange: [0, 0.5, 1, 1.5, 2, 2.5, 3],
+   //   outputRange: [0, -15, 0, -15, 0, -15, 0],
+   // });
+ */

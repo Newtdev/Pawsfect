@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
@@ -10,11 +10,12 @@ import Tab from '@shared/components/buttons/Tab';
 import ActionButton, {
   ButtonTypeEnum,
 } from '@shared/components/buttons/ActionButton';
-import InputField from '@shared/components/inputs/PawfectInput';
 import FormInput from '@shared/components/inputs/FormInput';
 import SearchBar from '@shared/components/inputs/SearchInput';
+import PinInput from '@shared/components/inputs/PinInput';
 
 function App(): React.JSX.Element {
+  const [pin, setPin] = useState('');
   return (
     <GestureHandlerRootView>
       <View>
@@ -42,6 +43,8 @@ function App(): React.JSX.Element {
         />
 
         <SearchBar onChangeText={function (text: string): void {}} value={''} />
+
+        <PinInput value={pin} onChangeText={val => setPin(val)} />
       </View>
     </GestureHandlerRootView>
   );
@@ -50,7 +53,6 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   iconButton: {
     borderWidth: 1,
-
     borderColor: Theme.black,
   },
   container: {
