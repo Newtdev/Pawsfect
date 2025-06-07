@@ -28,8 +28,6 @@ export default function useClipboard() {
   /**
    * The regular expression used to extract a 5-digit OTP from the clipboard content.
    * It is assumed that the opt will be a 5 digit number
-   *
-   *
    */
   const getOTPFromClipboard = async () => {
     const content = await getClipboardContent();

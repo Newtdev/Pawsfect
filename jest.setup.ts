@@ -42,6 +42,11 @@ jest.mock('react-native-reanimated', () => {
 // Mock react-native-safe-area-context
 jest.mock('react-native-safe-area-context', () => mockSafeAreaContext);
 
+jest.mock('@react-native-clipboard/clipboard', () => ({
+  getString: jest.fn(),
+  setString: jest.fn(),
+}));
+
 // Mock console methods in tests to reduce noise
 global.console = {
   ...console,

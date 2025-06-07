@@ -12,7 +12,7 @@ import React, {
   useEffect,
   useMemo,
 } from 'react';
-import {StyleSheet, type TextInput, View} from 'react-native';
+import {Platform, StyleSheet, type TextInput, View} from 'react-native';
 import InputField from './PawfectInput';
 import {Theme} from '@shared/utils/themes';
 import Fonts from '@shared/utils/fonts';
@@ -45,6 +45,11 @@ export interface PinInputProps {
   pinErrorMessage?: string;
   messageType?: 'default' | 'success' | 'warning' | 'error';
 }
+
+const autoComplete = Platform.select({
+  android: 'sms-otp',
+  default: 'one-time-code',
+});
 
 const PinInput = forwardRef(
   (props: PinInputProps, ref: ForwardedRef<TextInput>): JSX.Element => {
