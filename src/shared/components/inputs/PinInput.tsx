@@ -40,7 +40,7 @@ export interface PinInputProps {
   success?: boolean;
   onFocus?: () => void;
   onBlur?: () => void;
-  pinLabelStyle?: object;
+
   cellFocusedStyle?: object;
   pinErrorMessage?: string;
   messageType?: 'default' | 'success' | 'warning' | 'error';
@@ -177,6 +177,7 @@ const PinInput = forwardRef(
           spellCheck={false}
           returnKeyType="done"
           style={styles.textStyleRef}
+          autoComplete={autoComplete}
           containerStyle={styles.inputFieldContainerStyle}
         />
       </View>
