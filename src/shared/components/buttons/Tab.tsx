@@ -1,6 +1,5 @@
 import {StyleSheet, View} from 'react-native';
 import React, {useMemo} from 'react';
-import textCompVariant from '@shared/utils/text';
 import Caption from '../Text/Caption';
 import {moderateScale} from '@shared/utils/helpers';
 import {Theme} from '@shared/utils/themes';
@@ -31,11 +30,15 @@ export default function Tab({
     [isActive],
   );
   return (
-    <PawfectButton buttonStyle={[styles.container, buttonStyle]} {...props}>
+    <PawfectButton
+      buttonStyle={[styles.container, buttonStyle]}
+      accessible={true}
+      accessibilityRole="tab"
+      accessibilityState={{selected: isActive}}
+      accessibilityLabel={content}
+      {...props}>
       <>
-        <Caption
-          variant={textCompVariant.captionMedium}
-          textStyle={activeTabText}>
+        <Caption variant={'captionMedium'} textStyle={activeTabText}>
           {content}
         </Caption>
         <View style={activeTabLine} />

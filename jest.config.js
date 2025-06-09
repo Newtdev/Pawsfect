@@ -2,14 +2,14 @@ module.exports = {
   preset: 'react-native',
   setupFilesAfterEnv: [
     '@testing-library/jest-native/extend-expect',
-    '<rootDir>/__tests__/setup.test.ts',
+    '<rootDir>/jest.setup.ts',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 
   //this will be updated later
   testMatch: [
     '<rootDir>/__tests__/**/*.(ts|tsx|js)',
-    //'<rootDir>/**/?(*.)(test|spec).(ts|tsx|js)',
+    '<rootDir>/**/?(*.)(test|spec).(ts|tsx|js)',
   ],
 
   transform: {
@@ -17,8 +17,9 @@ module.exports = {
   },
 
   // Files to ignore when transforming
+  // Files to ignore when transforming
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|@react-native|react-native-gesture-handler|react-native-reanimated|@react-navigation|react-native-screens|react-native-safe-area-context|react-native-svg)/)',
+    'node_modules/(?!((react-native|@react-native|react-native-gesture-handler|react-native-reanimated|@react-navigation|react-native-screens|react-native-safe-area-context|react-native-svg|react-native-keyboard-aware-scroll-view|react-native-iphone-x-helper)/))',
   ],
 
   // Module name mapping for path aliases (matching your tsconfig paths)
@@ -49,10 +50,10 @@ module.exports = {
   // this should be updated later
   coverageThreshold: {
     global: {
-      branches: 1,
-      functions: 1,
-      lines: 1,
-      statements: 1,
+      branches: 40,
+      functions: 40,
+      lines: 40,
+      statements: 40,
     },
   },
 

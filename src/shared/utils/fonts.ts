@@ -1,4 +1,6 @@
-const Fonts = {
+import type {TextVariantStyle} from '@shared/types';
+
+const Fonts: {[x: string]: Omit<TextVariantStyle, 'fontSize'>} = {
   thinItalic: {
     fontFamily: 'Raleway-ThinItalic.ttf',
     fontWeight: '100',
@@ -75,7 +77,7 @@ const Fonts = {
     fontStyle: 'normal',
   },
   extraBoldItalic: {
-    fontFamily: 'Raleway-BoldItalic.ttf',
+    fontFamily: 'Raleway-ExtraBoldItalic.ttf',
     fontWeight: '800',
     fontStyle: 'italic',
   },
@@ -85,7 +87,7 @@ const Fonts = {
     fontStyle: 'normal',
   },
   blackItalic: {
-    fontFamily: 'Raleway-Italic.ttf',
+    fontFamily: 'Raleway-BlackItalic.ttf',
     fontWeight: '900',
     fontStyle: 'italic',
   },

@@ -7,7 +7,7 @@ import {
   verticalScale,
   guidelineBaseHeight,
   moderateScale,
-} from '../src/shared/utils/helpers';
+} from '../utils/helpers';
 
 // Mock Dimensions
 jest.mock('react-native', () => ({
