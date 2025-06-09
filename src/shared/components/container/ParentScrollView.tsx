@@ -7,11 +7,12 @@ import {
   type StyleSheet,
   type StyleProp,
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-controller';
+
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {horizontalScale, If} from '@shared/utils/helpers';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Theme} from '@shared/utils/themes';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 interface ParentScrollViewProps {
   children: React.ReactNode;

@@ -7,7 +7,7 @@ import {Theme} from '@shared/utils/themes';
 
 import PinInput from '@shared/components/inputs/PinInput';
 import ParentScrollView from '@shared/components/container/ParentScrollView';
-import {KeyboardProvider} from 'react-native-keyboard-controller';
+
 import RightHeaderContainer from '@shared/components/container/RightHeaderContainer';
 import ScreenTitle from '@shared/components/screen-header/ScreenTitle';
 import ScreenHeaderDescription from '@shared/components/screen-header/ScreenHeaderDescription';
@@ -17,25 +17,23 @@ function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView>
       <SafeAreaProvider>
-        <KeyboardProvider>
-          <ParentScrollView
-            screenTitle={
-              <ScreenHeaderDescription
-                title={'Welcome to Pawfect'}
-                description="pet management app"
-                rightContainer={
-                  <RightHeaderContainer
-                    leftIcon="notification"
-                    rightIcon="chevronLeft"
-                  />
-                }
-              />
-            }>
-            <View>
-              <PinInput value={pin} onChangeText={val => setPin(val)} />
-            </View>
-          </ParentScrollView>
-        </KeyboardProvider>
+        <ParentScrollView
+          screenTitle={
+            <ScreenHeaderDescription
+              title={'Welcome to Pawfect'}
+              description="pet management app"
+              rightContainer={
+                <RightHeaderContainer
+                  leftIcon="notification"
+                  rightIcon="chevronLeft"
+                />
+              }
+            />
+          }>
+          <View>
+            <PinInput value={pin} onChangeText={val => setPin(val)} />
+          </View>
+        </ParentScrollView>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

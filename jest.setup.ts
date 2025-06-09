@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler/jestSetup';
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
+
 const reanimated = require('react-native-reanimated');
 if (typeof reanimated.setUpTests === 'function') {
   reanimated.setUpTests();
