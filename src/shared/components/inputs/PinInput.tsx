@@ -27,7 +27,7 @@ interface State {
   showSuccess: boolean;
 }
 
-export interface PinInputProps {
+interface PinInputProps {
   value: string;
   codeLength?: number;
   autoFocus?: boolean;
@@ -138,7 +138,7 @@ const PinInput = forwardRef(
                 value={value[index] || ''}
                 editable={false}
                 secureTextEntry={secureTextEntry}
-                textContentType="oneTimeCode"
+                autoComplete={autoComplete}
                 textInputStyle={styles.cellText}
                 containerStyle={styles.inputFieldContainerStyle}
               />
@@ -190,7 +190,6 @@ export default PinInput;
 export const pinInputStyles = (cellWidth: number, cellHeight: number) =>
   StyleSheet.create({
     cellDefault: {
-      borderColor: 'transparent',
       borderWidth: 1,
     },
     cellFocusedDefault: {
@@ -210,7 +209,7 @@ export const pinInputStyles = (cellWidth: number, cellHeight: number) =>
       backgroundColor: 'transparent',
     },
     inputField: {
-      backgroundColor: Theme.primary.light,
+      backgroundColor: Theme.primary.transparent,
       width: horizontalScale(cellWidth),
       height: horizontalScale(cellHeight),
       marginRight: horizontalScale(8),
@@ -218,6 +217,8 @@ export const pinInputStyles = (cellWidth: number, cellHeight: number) =>
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: moderateScale(8),
+      borderWidth: 1,
+      borderColor: Theme.primary.light,
     },
     textStyle: {
       color: 'yellow',
@@ -249,24 +250,6 @@ export const pinInputStyles = (cellWidth: number, cellHeight: number) =>
       fontWeight: Fonts.bold?.fontWeight as '700',
       fontStyle: Fonts.bold?.fontStyle,
     },
-    screenTitleCenterContainer: {
-      backgroundColor: 'white',
-      paddingHorizontal: horizontalScale(16),
-      width: '100%',
-      paddingVertical: verticalScale(24),
-
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-
-      shadowColor: '#000',
-      shadowOffset: {
-        width: -2,
-        height: 4,
-      },
-      shadowOpacity: 0.12,
-      shadowRadius: 20,
-      elevation: 20,
-    },
   });
+
+//eslint - plugin - react - native - a11y;

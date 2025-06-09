@@ -65,6 +65,7 @@ export default function FormInput({
         }}
         accessibilityLabel={accessibilityLabel ?? placeholder}
         {...props}
+        accessibilityHint=""
       />
       <If condition={error}>
         <View style={styles.errorContainer}>

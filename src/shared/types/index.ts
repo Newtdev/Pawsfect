@@ -7,22 +7,26 @@ import type {
   ViewStyle,
 } from 'react-native';
 
-type FontWeightStyle = {
-  fontWeight: string; // Or more specific type like 'bold' | 'normal' | '600' if known
-};
+type FontWeightStyle =
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900';
 
-// type TextVariantCategory = 'header' | 'subheader' | 'body' | 'caption';
-// type TextVariantSize = 'Large' | 'Medium' | 'Small' | 'Thin';
-
-// type TextVariantKey = `${TextVariantCategory}${TextVariantSize}`;
-
-type TextVariantStyle = FontWeightStyle & {
+export type TextVariantStyle = {
   fontSize: number;
+  fontFamily: string;
+  fontWeight: FontWeightStyle;
+  lineHeight?: number;
+  fontStyle?: 'normal' | 'italic';
 };
 
-export type TextComponentVariants = {
-  [x: string]: TextVariantStyle;
-};
+export type IconName = 'notification' | 'logo' | 'filter' | 'chevronLeft';
 
 export type ViewPropsType = StyleProp<ViewStyle>;
 export type TextPropsType = StyleProp<TextStyle>;

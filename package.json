@@ -14,14 +14,14 @@
     "test:ci": "jest --coverage --watchAll=false --maxWorkers=2",
     "test:update": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",
-    "prepare": "husky",
-    "typo-checker": "typo-checker"
+    "prepare": "husky"
   },
   "dependencies": {
     "@react-native-clipboard/clipboard": "^1.16.2",
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-gesture-handler": "^2.25.0",
+    "react-native-keyboard-controller": "^1.17.3",
     "react-native-reanimated": "^3.18.0",
     "react-native-safe-area-context": "^5.4.1",
     "react-native-svg": "^15.11.2",

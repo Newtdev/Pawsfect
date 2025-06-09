@@ -23,11 +23,12 @@ export const buttons = StyleSheet.create({
     paddingHorizontal: horizontalScale(32),
   },
   iconButtonWithBorder: {
-    height: verticalScale(35),
-    width: horizontalScale(35),
+    height: verticalScale(30),
+    width: horizontalScale(30),
     borderRadius: moderateScale(100),
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
   },
   chip: {},
 });
@@ -75,3 +76,19 @@ export const textInputStyles = (isFocused: boolean, error: boolean = false) => {
     },
   });
 };
+
+export const screenHeaderStyle = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: 41,
+  },
+  title: {
+    textTransform: 'none',
+    color: Theme.black,
+  },
+  iconButton: {
+    borderColor: Theme.black,
+  },
+});

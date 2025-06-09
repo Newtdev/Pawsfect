@@ -1,6 +1,10 @@
-import {StyleSheet, Text, type TextStyle} from 'react-native';
-import React, {type ReactNode, type JSX, type ReactElement} from 'react';
-import type {TextPropsType} from '@shared/types';
+import {
+  StyleSheet,
+  Text,
+  type TextStyle,
+  type AccessibilityProps,
+} from 'react-native';
+import React, {type JSX, type ReactElement} from 'react';
 import textCompVariant from '@shared/utils/text';
 
 /***
@@ -11,16 +15,30 @@ import textCompVariant from '@shared/utils/text';
  *
  */
 
-interface CaptionProps {
-  variant?: TextPropsType;
+interface CaptionProps extends AccessibilityProps {
+  variant?: 'captionLarge' | 'captionMedium' | 'captionSmall' | 'captionThin';
   textStyle?: TextStyle;
   children: ReactElement | string;
+  accessibilityLabel?: string;
+  accessible?: boolean;
 }
 
 export default function Caption({
-  variant = textCompVariant.captionLarge,
+  variant = 'captionLarge',
   textStyle = {},
   children,
+  accessibilityLabel,
+  accessible = true,
+  ...rest
 }: Readonly<CaptionProps>): JSX.Element {
-  return <Text style={StyleSheet.compose(variant, textStyle)}>{children}</Text>;
+  return (
+    <Text
+      style={StyleSheet.compose(textCompVariant[variant], textStyle)}
+      accessibilityLabel={accessibilityLabel}
+      accessible={accessible}
+      accessibilityRole="text"
+      {...rest}>
+      {children}
+    </Text>
+  );
 }

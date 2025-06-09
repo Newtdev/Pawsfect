@@ -1,51 +1,42 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import SVGWrapper from './shared/components/SVGWrapper';
-import IconButton from '@shared/components/buttons/IconButton';
 import {Theme} from '@shared/utils/themes';
-import Chip from '@shared/components/buttons/Chip';
-import Tab from '@shared/components/buttons/Tab';
-import ActionButton, {
-  ButtonTypeEnum,
-} from '@shared/components/buttons/ActionButton';
-import FormInput from '@shared/components/inputs/FormInput';
-import SearchBar from '@shared/components/inputs/SearchInput';
+
 import PinInput from '@shared/components/inputs/PinInput';
+import ParentScrollView from '@shared/components/container/ParentScrollView';
+import {KeyboardProvider} from 'react-native-keyboard-controller';
+import RightHeaderContainer from '@shared/components/container/RightHeaderContainer';
+import ScreenTitle from '@shared/components/screen-header/ScreenTitle';
+import ScreenHeaderDescription from '@shared/components/screen-header/ScreenHeaderDescription';
 
 function App(): React.JSX.Element {
   const [pin, setPin] = useState('');
   return (
     <GestureHandlerRootView>
-      <View>
-        <SVGWrapper name="logo" height={36} width={36} />
-        <View style={styles.container}>
-          <Chip content="Green Pea" excluded={true} />
-          <Chip content="Green Pea" />
-
-          <Tab content="Accessories" isActive={true} onPress={() => {}} />
-        </View>
-        <IconButton icon={'notification'} buttonStyle={styles.iconButton} />
-        <ActionButton
-          name="Pay with points"
-          onPress={() => {}}
-          leftComponent={<SVGWrapper name="notification" />}
-          variant={ButtonTypeEnum.Default}
-        />
-
-        <FormInput
-          placeholder="Enter your email"
-          label="Email"
-          inputTextStyle={{color: Theme.black}}
-          error="Something went wrong"
-          // containerStyle={{marginVertical: 10}}
-        />
-
-        <SearchBar onChangeText={function (text: string): void {}} value={''} />
-
-        <PinInput value={pin} onChangeText={val => setPin(val)} />
-      </View>
+      <SafeAreaProvider>
+        <KeyboardProvider>
+          <ParentScrollView
+            screenTitle={
+              <ScreenHeaderDescription
+                title={'Welcome to Pawfect'}
+                description="pet management app"
+                rightContainer={
+                  <RightHeaderContainer
+                    leftIcon="notification"
+                    rightIcon="chevronLeft"
+                  />
+                }
+              />
+            }>
+            <View>
+              <PinInput value={pin} onChangeText={val => setPin(val)} />
+            </View>
+          </ParentScrollView>
+        </KeyboardProvider>
+      </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 }

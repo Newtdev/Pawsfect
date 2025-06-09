@@ -3470,6 +3470,7 @@ __metadata:
     react: 19.0.0
     react-native: 0.79.2
     react-native-gesture-handler: ^2.25.0
+    react-native-keyboard-controller: ^1.17.3
     react-native-reanimated: ^3.18.0
     react-native-safe-area-context: ^5.4.1
     react-native-svg: ^15.11.2
@@ -9594,13 +9595,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-is-edge-to-edge@npm:1.1.7":
+"react-native-is-edge-to-edge@npm:1.1.7, react-native-is-edge-to-edge@npm:^1.1.6":
   version: 1.1.7
   resolution: "react-native-is-edge-to-edge@npm:1.1.7"
   peerDependencies:
     react: "*"
     react-native: "*"
   checksum: 4cdf2b2fb5b131f2015c26d2cb7688b4a0c5f3c8474b1bf0ddfa9eabb0263df440c87262ae8f812a6ecab0d5310df0373bddad4b51f53dabb2ffee01e9ef0f44
+  languageName: node
+  linkType: hard
+
+"react-native-keyboard-controller@npm:^1.17.3":
+  version: 1.17.3
+  resolution: "react-native-keyboard-controller@npm:1.17.3"
+  dependencies:
+    react-native-is-edge-to-edge: ^1.1.6
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-reanimated: ">=3.0.0"
+  checksum: 0f9f72ba86664c9740416c2e050547a5220bb60f2ab90865dc44a3bbff75eb1d52ebb87fc6f3250e3b214b7699a76f89d24215580529f9916e589b2c90f2f48b
   languageName: node
   linkType: hard
 
