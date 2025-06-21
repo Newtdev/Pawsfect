@@ -1,8 +1,4 @@
-import {
-  horizontalScale,
-  moderateScale,
-  verticalScale,
-} from '@shared/utils/helpers';
+import {horizontalScale, moderateScale} from '@shared/utils/helpers';
 import React, {
   forwardRef,
   type ForwardedRef,
@@ -207,6 +203,7 @@ export const pinInputStyles = (cellWidth: number, cellHeight: number) =>
     },
     inputFieldContainerStyle: {
       backgroundColor: 'transparent',
+      width: '100%',
     },
     inputField: {
       backgroundColor: Theme.primary.transparent,

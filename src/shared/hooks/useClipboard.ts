@@ -1,4 +1,4 @@
-import Clipboard from '@react-native-clipboard/clipboard';
+// import * as Clipboard from '@react-native-clipboard/clipboard';
 
 /**
  * Custom React hook for interacting with the system clipboard.
@@ -17,13 +17,12 @@ import Clipboard from '@react-native-clipboard/clipboard';
 export default function useClipboard() {
   // Copies the provided text to the clipboard and updates the local state.
   const copyToClipboard = (text: string) => {
-    Clipboard.setString(text);
+    // Clipboard.default.setString(text);
   };
 
   const getClipboardContent = async () => {
-    const contentInClipboard = await Clipboard.getString();
-
-    return contentInClipboard;
+    // const contentInClipboard = await Clipboard.default.getString();
+    // return contentInClipboard;
   };
   /**
    * The regular expression used to extract a 5-digit OTP from the clipboard content.
@@ -31,11 +30,12 @@ export default function useClipboard() {
    */
   const getOTPFromClipboard = async () => {
     const content = await getClipboardContent();
-    if (content) {
-      const otpRegex = /\b\d{5}\b/;
-      const match = otpRegex.exec(content);
-      return match ? match[0] : null;
-    }
+
+    // if (content) {
+    //   const otpRegex = /\b\d{5}\b/;
+    //   const match = otpRegex.exec(content);
+    //   return match ? match[0] : null;
+    // }
     return null;
   };
 

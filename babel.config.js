@@ -1,6 +1,6 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset'],
   plugins: [
+    '@lingui/babel-plugin-lingui-macro',
     [
       'module-resolver',
       {
@@ -22,4 +22,5 @@ module.exports = {
     ],
     'react-native-reanimated/plugin',
   ],
+  presets: ['module:@react-native/babel-preset'],
 };

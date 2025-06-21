@@ -10,7 +10,7 @@ import {
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {horizontalScale, If} from '@shared/utils/helpers';
-import {ScrollView} from 'react-native-gesture-handler';
+
 import {Theme} from '@shared/utils/themes';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -32,6 +32,7 @@ export default function ParentScrollView({
   backgroundColour = Theme.primary.light,
   showsVerticalScrollIndicator = false,
   noPadding = false,
+  enableAutomaticScroll = true,
   containerStyle = {},
   onScroll = () => {},
   onTouchParentView = () => {},
@@ -66,13 +67,10 @@ export default function ParentScrollView({
         style={parentStyleWithInsets}
         contentContainerStyle={containerStyle}
         showsVerticalScrollIndicator={showsVerticalScrollIndicator}
-        disableScrollOnKeyboardHide={true}
-        onScroll={onScroll}
         scrollEventThrottle={15}
-        //bottomOffset={}
-
-        onStartShouldSetResponder={onStartShouldSetResponder}
-        ScrollViewComponent={ScrollView}>
+        enableAutomaticScroll={enableAutomaticScroll}
+        onScroll={onScroll}
+        onStartShouldSetResponder={onStartShouldSetResponder}>
         <Pressable
           onPress={onPressParentScrollView}
           style={containerStyles.parent}
