@@ -5,13 +5,24 @@ import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 
+import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+
 class MainActivity : ReactActivity() {
 
-  /**
-   * Returns the name of the main component registered from JavaScript. This is used to schedule
-   * rendering of the component.
-   */
-  override fun getMainComponentName(): String = "Pawsfect"
+    override fun onCreate(savedInstanceState: Bundle?) {
+        //call before `super.onCreate`
+        // THIS LINE IS CRUCIAL FOR ANDROID 12+ SPLASH SCREEN API
+        installSplashScreen() // Initializes the new Splash Screen API
+//        setTheme(R.style.AppTheme)
+
+        super.onCreate(savedInstanceState)
+    }
+    /**
+     * Returns the name of the main component registered from JavaScript. This is used to schedule
+     * rendering of the component.
+     */
+    override fun getMainComponentName(): String = "Pawsfect"
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]

@@ -49,7 +49,7 @@ jobs:
           name: Type Check (if using TypeScript)
           command: npm run type-check
       - store_test_results:
-          path: ./coverage
+          path: ./jest-junit.xml
       - store_artifacts:
           path: ./coverage
 

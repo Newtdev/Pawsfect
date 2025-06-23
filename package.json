@@ -17,22 +17,26 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@formatjs/intl-locale": "^4.0.2",
+    "@formatjs/intl-pluralrules": "^5.2.16",
+    "@lingui/core": "^5.3.2",
+    "@lingui/react": "^5.3.2",
     "@react-native-clipboard/clipboard": "^1.16.2",
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-gesture-handler": "^2.25.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
-    "react-native-keyboard-controller": "^1.17.3",
-    "react-native-reanimated": "^3.18.0",
+    "react-native-reanimated": "^3.17.5",
     "react-native-safe-area-context": "^5.4.1",
-    "react-native-svg": "^15.11.2",
-    "snyk": "^1.1297.1",
-    "typo-checker": "^1.0.7"
+    "react-native-svg": "15.11.2",
+    "snyk": "^1.1297.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
+    "@lingui/babel-plugin-lingui-macro": "^5.3.2",
+    "@lingui/cli": "^5.3.2",
     "@react-native-community/cli": "18.0.0",
     "@react-native-community/cli-platform-android": "18.0.0",
     "@react-native-community/cli-platform-ios": "18.0.0",

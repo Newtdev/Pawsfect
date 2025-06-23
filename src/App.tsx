@@ -9,7 +9,6 @@ import PinInput from '@shared/components/inputs/PinInput';
 import ParentScrollView from '@shared/components/container/ParentScrollView';
 
 import RightHeaderContainer from '@shared/components/container/RightHeaderContainer';
-import ScreenTitle from '@shared/components/screen-header/ScreenTitle';
 import ScreenHeaderDescription from '@shared/components/screen-header/ScreenHeaderDescription';
 
 function App(): React.JSX.Element {
