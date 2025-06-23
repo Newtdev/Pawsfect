@@ -1,7 +1,7 @@
-import {type TextComponentVariants} from '../types';
+import {type TextVariantStyle} from '../types';
 import Fonts from './fonts';
 
-const textCompVariant: TextComponentVariants = {
+const textCompVariant: {[x: string]: TextVariantStyle} = {
   headerLarge: {
     fontSize: 36,
     ...Fonts.bold,

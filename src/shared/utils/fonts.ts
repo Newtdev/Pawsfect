@@ -1,16 +1,6 @@
-import type {FontKey} from '@shared/types';
+import type {TextVariantStyle} from '@shared/types';
 
-type FontStyle = {
-  fontFamily: string;
-  fontWeight: string;
-  fontStyle: 'normal' | 'italic';
-};
-
-type FontsType = {
-  [key in FontKey]: FontStyle;
-};
-
-const Fonts: FontsType = {
+const Fonts: {[x: string]: Omit<TextVariantStyle, 'fontSize'>} = {
   thinItalic: {
     fontFamily: 'Raleway-ThinItalic.ttf',
     fontWeight: '100',

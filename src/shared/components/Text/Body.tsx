@@ -1,9 +1,8 @@
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, type AccessibilityProps} from 'react-native';
 import type {TextStyle} from 'react-native';
 import type {JSX} from 'react';
 import React from 'react';
 import textCompVariant from '@utils/text';
-import {type TextComponentVariants} from '@shared/types';
 
 /***
  * Body component for content body
@@ -13,16 +12,32 @@ import {type TextComponentVariants} from '@shared/types';
  *
  */
 
-interface BodyProps {
-  variant?: TextComponentVariants;
+interface BodyProps extends AccessibilityProps {
+  variant?: 'bodyMedium' | 'bodySmall' | 'bodyThin' | 'bodyLarge';
   textStyle?: TextStyle;
   children?: React.ReactNode;
+  accessible?: boolean;
+  accessibilityLabel?: string;
+  accessibilityRole?: AccessibilityProps['accessibilityRole'];
 }
 
 export default function Body({
-  variant = textCompVariant.BodyLarge,
+  variant = 'bodyLarge',
   textStyle = {},
   children,
+  accessible,
+  accessibilityLabel,
+  accessibilityRole = 'text',
+  ...rest
 }: Readonly<BodyProps>): JSX.Element {
-  return <Text style={StyleSheet.compose(variant, textStyle)}>{children}</Text>;
+  return (
+    <Text
+      style={StyleSheet.compose(textCompVariant[variant], textStyle)}
+      accessible={accessible}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityRole={accessibilityRole}
+      {...rest}>
+      {children}
+    </Text>
+  );
 }
