@@ -2,14 +2,14 @@ module.exports = {
   preset: 'react-native',
   setupFilesAfterEnv: [
     '@testing-library/jest-native/extend-expect',
-    '<rootDir>/__tests__/setup.test.ts',
+    '<rootDir>/jest.setup.ts',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 
   //this will be updated later
   testMatch: [
     '<rootDir>/__tests__/**/*.(ts|tsx|js)',
-    //'<rootDir>/**/?(*.)(test|spec).(ts|tsx|js)',
+    '<rootDir>/**/?(*.)(test|spec).(ts|tsx|js)',
   ],
 
   transform: {
@@ -49,10 +49,10 @@ module.exports = {
   // this should be updated later
   coverageThreshold: {
     global: {
-      branches: 1,
-      functions: 1,
-      lines: 1,
-      statements: 1,
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70,
     },
   },
 

@@ -1,4 +1,16 @@
-const Fonts = {
+import type {FontKey} from '@shared/types';
+
+type FontStyle = {
+  fontFamily: string;
+  fontWeight: string;
+  fontStyle: 'normal' | 'italic';
+};
+
+type FontsType = {
+  [key in FontKey]: FontStyle;
+};
+
+const Fonts: FontsType = {
   thinItalic: {
     fontFamily: 'Raleway-ThinItalic.ttf',
     fontWeight: '100',
@@ -75,7 +87,7 @@ const Fonts = {
     fontStyle: 'normal',
   },
   extraBoldItalic: {
-    fontFamily: 'Raleway-BoldItalic.ttf',
+    fontFamily: 'Raleway-ExtraBoldItalic.ttf',
     fontWeight: '800',
     fontStyle: 'italic',
   },
@@ -85,7 +97,7 @@ const Fonts = {
     fontStyle: 'normal',
   },
   blackItalic: {
-    fontFamily: 'Raleway-Italic.ttf',
+    fontFamily: 'Raleway-BlackItalic.ttf',
     fontWeight: '900',
     fontStyle: 'italic',
   },

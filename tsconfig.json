@@ -4,7 +4,7 @@
     "jsx": "react",
     "strict": true,
     "moduleResolution": "bundler",
-    "types": ["react-native", "react", "node"],
+    "types": ["react-native", "react", "node", "jest"],
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["./src/assets/*"],
@@ -23,6 +23,8 @@
     "src/**/*.tsx",
     "babel.config.js",
     "declaration.d.ts",
-    "__tests__/Chip.test.tsx"
+    "__tests__/Chip.test.tsx",
+    "src/shared/__test__/useDebounceFunction.test.ts",
+    "src/shared/__test__/useClipboard.test.ts"
   ]
 }

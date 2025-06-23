@@ -50,6 +50,10 @@ interface ActionButtonProps {
   props?: PawfectButtonProps;
   onPress?: () => void;
   isLoading?: boolean;
+  accessibilityLabel?: string;
+  accessibilityHint?: string;
+  accessible?: boolean;
+  disabled?: boolean;
 }
 
 export default function ActionButton({
@@ -57,11 +61,20 @@ export default function ActionButton({
   variant = ButtonTypeEnum.Default,
   leftComponent,
   isLoading = false,
+  accessibilityLabel,
+  accessibilityHint,
+  accessible = true,
+  disabled = false,
   ...props
 }: Readonly<ActionButtonProps>): React.JSX.Element {
   return (
     <PawfectButton
       buttonStyle={[buttonStyles.button, variantStyles[variant]]}
+      accessibilityLabel={accessibilityLabel ?? name}
+      accessibilityHint={accessibilityHint}
+      accessible={accessible}
+      accessibilityRole="button"
+      accessibilityState={{disabled: disabled, busy: isLoading}}
       {...props}>
       <>
         <If condition={leftComponent}>{leftComponent}</If>
