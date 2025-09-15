@@ -9,10 +9,11 @@ import {
 } from 'react-native';
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {horizontalScale, If} from '@shared/utils/helpers';
 
 import {Theme} from '@shared/utils/themes';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import If from './If';
+import {horizontalScale} from '@shared/utils/helpers';
 
 interface ParentScrollViewProps {
   children: React.ReactNode;

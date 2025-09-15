@@ -17,11 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@formatjs/intl-locale": "^4.0.2",
-    "@formatjs/intl-pluralrules": "^5.2.16",
-    "@lingui/core": "^5.3.2",
-    "@lingui/react": "^5.3.2",
-    "@react-native-clipboard/clipboard": "^1.16.2",
+    "@react-native-clipboard/clipboard": "^1.16.3",
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-gesture-handler": "^2.25.0",
@@ -35,8 +31,6 @@
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
-    "@lingui/babel-plugin-lingui-macro": "^5.3.2",
-    "@lingui/cli": "^5.3.2",
     "@react-native-community/cli": "18.0.0",
     "@react-native-community/cli-platform-android": "18.0.0",
     "@react-native-community/cli-platform-ios": "18.0.0",
@@ -73,7 +67,8 @@
     "*.{js,jsx,ts,tsx}": [
       "node remove_console.js",
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "type-check"
     ]
   },
   "engines": {

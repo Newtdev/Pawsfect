@@ -30,7 +30,11 @@ function App(): React.JSX.Element {
             />
           }>
           <View>
-            <PinInput value={pin} onChangeText={val => setPin(val)} />
+            <PinInput
+              value={pin}
+              onChangeText={val => setPin(val)}
+              onFulfill={() => {}}
+            />
           </View>
         </ParentScrollView>
       </SafeAreaProvider>

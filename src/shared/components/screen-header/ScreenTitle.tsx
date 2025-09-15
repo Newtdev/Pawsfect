@@ -1,11 +1,11 @@
 import type {ViewPropsType} from '@shared/types';
-import {If} from '@shared/utils/helpers';
 import React, {type ReactElement, type JSX} from 'react';
 import {View, StyleSheet} from 'react-native';
 import Body from '../Text/Body';
 import IconButton from '../buttons/IconButton';
 import {buttons, screenHeaderStyle} from '../styles';
 import {Theme} from '@shared/utils/themes';
+import If from '../container/If';
 
 interface ScreenTitleProps {
   title?: string;
