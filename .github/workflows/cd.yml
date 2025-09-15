@@ -1,0 +1,122 @@
+name: Deploy to Firebase App Distribution
+
+on:
+  push:
+    branches:
+      - UAT
+
+jobs:
+  build_and_distribute_android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+          
+      - name: Install Node Dependencies
+        run: yarn install
+
+      - name: Setup Android SDK
+        uses: reactivecircus/android-build-action@v2
+      
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('android/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      
+      - name: Build Android Release APK
+        run: |
+          cd android
+          ./gradlew assembleRelease
+
+      - name: Upload to Firebase App Distribution
+        id: testing_outputs_android
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CREDENTIALS }}
+          groups: 'dev_team'
+          file: android/app/build/outputs/apk/release/app-release.apk
+
+      - name: Print Android outputs
+        run: |
+          echo "Firebase Console URI: ${{steps.testing_outputs_android.outputs.FIREBASE_CONSOLE_URI}}"
+          echo "Binary Download URI: ${{steps.testing_outputs_android.outputs.BINARY_DOWNLOAD_URI}}"
+  
+  build_and_distribute_ios:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+
+      - name: Install Node Dependencies
+        run: yarn install
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install CocoaPods
+        run: |
+          cd ios
+          pod install
+
+      # We are commenting out the certificate and profile installation for now
+      # When ready for a release build, uncomment these lines
+      # - name: Install iOS Certificates & Profiles
+      #   uses: apple-actions/import-certificates@v1
+      #   with:
+      #     p12-password: ${{ secrets.IOS_P12_PASSWORD }}
+      #     p12-certificate-base64: ${{ secrets.IOS_P12_CERTIFICATE_BASE64 }}
+      #     mobile-provision-profile-base64: ${{ secrets.IOS_PROVISION_PROFILE_BASE64 }}
+
+      - name: Build and Archive iOS Debug
+        run: |
+          cd ios
+          xcodebuild -workspace pawsfect.xcworkspace \
+                     -scheme pawsfect \
+                     -configuration Debug \
+                     -sdk iphonesimulator \
+                     -derivedDataPath build \
+                     -destination 'platform=iOS Simulator,name=iPhone 15'
+      
+      - name: Create a universal IPA
+        run: |
+          cd ios/build/Build/Products/Debug-iphonesimulator
+          mkdir Payload
+          cp -r pawsfect.app Payload
+          zip -r pawsfect.ipa Payload
+
+      - name: Upload to Firebase App Distribution
+        id: testing_outputs_ios
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_IOS_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CREDENTIALS }}
+          groups: 'dev_team'
+          file: ios/build/Build/Products/Debug-iphonesimulator/pawsfect.ipa
+
+      - name: Print iOS outputs
+        run: |
+          echo "Firebase Console URI: ${{steps.testing_outputs_ios.outputs.FIREBASE_CONSOLE_URI}}"
+          echo "Binary Download URI: ${{steps.testing_outputs_ios.outputs.BINARY_DOWNLOAD_URI}}"

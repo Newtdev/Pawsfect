@@ -59,10 +59,18 @@ module.exports = {
 
   // Coverage output
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov', 'html', 'clover'],
+  coverageReporters: [
+    'text',
+    'lcov',
+    'html',
+    'clover',
+    'json-summary',
+    'text-summary',
+  ],
 
   // Test environment
-  testEnvironment: 'node',
+  //use default
+  // testEnvironment: 'node',
 
   // Clear mocks between tests
   clearMocks: true,
