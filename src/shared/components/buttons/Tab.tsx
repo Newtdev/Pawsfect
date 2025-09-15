@@ -1,10 +1,10 @@
 import {StyleSheet, View} from 'react-native';
 import React, {useMemo} from 'react';
 import Caption from '../Text/Caption';
-import {moderateScale} from '@shared/utils/helpers';
 import {Theme} from '@shared/utils/themes';
 import PawfectButton from './PawfectButton';
 import type {ViewPropsType} from '@shared/types';
+import {moderateScale} from '@shared/utils/helpers';
 
 interface TabProps {
   content: string;

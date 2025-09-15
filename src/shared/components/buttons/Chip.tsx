@@ -49,7 +49,7 @@ export default function Chip({
       accessibilityState={accessibilityState}
       {...props}>
       <Caption
-        variant={textCompVariant.captionSmall}
+        variant={textCompVariant.captionSmall as never}
         textStyle={chipStyle.body}>
         {content}
       </Caption>

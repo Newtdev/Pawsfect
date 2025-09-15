@@ -1,9 +1,10 @@
 import React, {type JSX} from 'react';
 import SVGWrapper from '../SVGWrapper';
-import {horizontalScale, verticalScale} from '@shared/utils/helpers';
+
 import type {IconName, ViewPropsType} from '@shared/types';
 import PawfectButton from './PawfectButton';
 import {buttons} from '../styles';
+import {verticalScale, horizontalScale} from '@shared/utils/helpers';
 
 export interface IconButtonProps {
   buttonContainerStyle?: ViewPropsType;

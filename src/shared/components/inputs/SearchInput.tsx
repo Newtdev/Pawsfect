@@ -9,13 +9,14 @@ import InputField from './PawfectInput';
 import useDebounceFunction from '@hooks/useDebounceFunction';
 import IconButton from '../buttons/IconButton';
 import type {SvgProps} from 'react-native-svg';
-import {horizontalScale, verticalScale} from '@shared/utils/helpers';
+
 import {Theme} from '@shared/utils/themes';
+import {horizontalScale, verticalScale} from '@shared/utils/helpers';
 
 interface SearchBarProps {
   placeholder?: string;
   onChangeText: (text: string) => void;
-  icon?: SvgProps['name'] | 'filter';
+  icon?: SvgProps | 'filter';
   value: string;
   onFocus?: () => void;
   onBlur?: () => void;
@@ -91,7 +92,7 @@ export default function SearchBar({
       containerStyle={styles.inputContainerStyle}
       rightComponent={
         <IconButton
-          icon={icon}
+          icon={icon as never}
           onPress={handleIconPress}
           buttonStyle={styles.iconStyle}
           height={verticalScale(30)}

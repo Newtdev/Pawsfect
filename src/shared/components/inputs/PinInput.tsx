@@ -1,4 +1,3 @@
-import {horizontalScale, moderateScale} from '@shared/utils/helpers';
 import React, {
   forwardRef,
   type ForwardedRef,
@@ -16,6 +15,7 @@ import Animated from 'react-native-reanimated';
 
 import useClipboard from '@hooks/useClipboard';
 import useShakeAnimation from '@hooks/useShakeAnimation';
+import {horizontalScale, moderateScale} from '@shared/utils/helpers';
 
 interface State {
   focused: boolean;

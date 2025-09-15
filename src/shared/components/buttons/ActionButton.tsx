@@ -6,12 +6,12 @@ import textCompVariant from '@shared/utils/text';
 import {Theme} from '@shared/utils/themes';
 import {
   horizontalScale,
-  If,
   moderateScale,
   verticalScale,
 } from '@shared/utils/helpers';
 import type {PawfectButtonProps} from '@shared/types';
 import Spinner from '../Spinner';
+import If from '@shared/components/container/If';
 
 export enum ButtonTypeEnum {
   Default = 'Default',

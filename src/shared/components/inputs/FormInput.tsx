@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import InputField from './PawfectInput';
 import IconButton from '../buttons/IconButton';
 import Caption from '../Text/Caption';
-import {horizontalScale, If} from '@shared/utils/helpers';
+
 import textCompVariant from '@shared/utils/text';
 import {Theme} from '@shared/utils/themes';
 import Animated, {
@@ -13,6 +13,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import {SHAKE_OFFSET} from '@shared/utils/constant';
+import If from '../container/If';
+import {horizontalScale} from '@shared/utils/helpers';
 
 interface FormInputProps {
   placeholder?: string;
@@ -70,7 +72,7 @@ export default function FormInput({
       <If condition={error}>
         <View style={styles.errorContainer}>
           <Caption
-            variant={textCompVariant.captionMedium}
+            variant={textCompVariant.captionMedium as never}
             textStyle={styles.error}>
             {error ?? ''}
           </Caption>

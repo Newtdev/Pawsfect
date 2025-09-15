@@ -2,9 +2,9 @@ import {View, StyleSheet, type ViewStyle} from 'react-native';
 import React from 'react';
 import {Theme} from '@shared/utils/themes';
 import IconButton from '../buttons/IconButton';
-import {moderateScale} from '@shared/utils/helpers';
 import {buttons} from '../styles';
 import type {IconName, ViewPropsType} from '@shared/types';
+import {moderateScale} from '@shared/utils/helpers';
 
 interface RightHeaderContainerProps {
   leftIcon: IconName;

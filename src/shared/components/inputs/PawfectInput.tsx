@@ -1,5 +1,5 @@
 import type {ViewPropsType} from '@shared/types';
-import {horizontalScale, verticalScale, If} from '@shared/utils/helpers';
+import {horizontalScale, verticalScale} from '@shared/utils/helpers';
 import textCompVariant from '@shared/utils/text';
 import {Theme} from '@shared/utils/themes';
 import React from 'react';
@@ -12,6 +12,7 @@ import {
   AccessibilityProps,
 } from 'react-native';
 import {textInputStyles} from '../styles';
+import If from '../container/If';
 
 type InputFieldProps = {
   textInputStyle?: TextStyle;

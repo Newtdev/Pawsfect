@@ -1,4 +1,3 @@
-import type {ReactNode} from 'react';
 import {Dimensions} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
@@ -22,16 +21,6 @@ const isTablet = width >= 768;
 const isObjectEmpty = (obj: null | undefined | object) =>
   obj === null || obj === undefined || Object.keys(obj).length === 0;
 
-interface IFProps {
-  condition: ReactNode;
-  children: React.ReactNode;
-}
-const If = ({condition, children}: IFProps) => {
-  if (condition) {
-    return children;
-  }
-};
-
 export {
   horizontalScale,
   verticalScale,
@@ -40,7 +29,6 @@ export {
   height,
   isTablet,
   isObjectEmpty,
-  If,
 };
 
 /**

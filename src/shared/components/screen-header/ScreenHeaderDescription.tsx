@@ -3,12 +3,12 @@ import type {JSX, ReactElement} from 'react';
 import {View, StyleSheet} from 'react-native';
 
 import type {ViewPropsType} from '@shared/types';
-import {If} from '@shared/utils/helpers';
 import {Theme} from '@shared/utils/themes';
 import IconButton from '../buttons/IconButton';
 import {buttons, screenHeaderStyle} from '../styles';
-import Body from '../Text/Body';
-import Caption from '../Text/Caption';
+import Body from '@shared/components/Text/Body';
+import Caption from '@shared/components/Text/Caption';
+import If from '@shared/components/container/If';
 
 interface ScreenTitleProps {
   title: string;
