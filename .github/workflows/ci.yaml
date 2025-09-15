@@ -22,7 +22,8 @@ jobs:
         run: yarn install
 
       - name: Run Snyk Scan
-        uses: snyk/actions/node@v1
+        # uses: snyk/actions/node@v1
+        uses: snyk/actions/node@master
         with:
           args: --all-projects --severity-threshold=high
         env:
